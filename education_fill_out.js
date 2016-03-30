@@ -1,3 +1,4 @@
+
 //產生指定整數亂數
 function GetRandom(Min,Max){
   return Math.floor(Math.random()* (Max-Min+1) )+Min
@@ -29,8 +30,17 @@ function fill_out( n , m , Min , Max){
 	}
 }
 
-
-var n = count_id(1,1); //一般選項欄位數
-var m = count_id(n+1,5); //業界選項欄位數
-fill_out(n,m,2,4);//填寫表單
-Button1.click();//送出
+if(location.href.match('https://stu255.ntust.edu.tw/ntust_stu/stu_midjudge.aspx')){
+	var link = document.querySelector('tbody tr td font a');
+	if(link == null){
+		alert('表單全部填寫完成囉');
+	}else{
+		location.href = link.href;
+	}
+}else if(location.href.match('https://stu255.ntust.edu.tw/ntust_stu/stu_midjudge_course.aspx?')){
+		var n = count_id(1,1); //一般選項欄位數
+		var m = count_id(n+1,5); //業界選項欄位數
+		fill_out(n,m,2,4);//填寫表單
+		Button1.click();//送出
+}
+	
